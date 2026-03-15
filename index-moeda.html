@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ProCalc | Conversor de Moedas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style-calcula.css">
+    <link rel="stylesheet" href="CSS/header-calcula.css">
+    <link rel="stylesheet" href="CSS/home-calcula.css">
+</head>
+
+<body>
+
+    <header class="calc-header">
+        <div class="logo">
+            <h1><i class="fa-solid fa-microchip"></i> ProCalc</h1>
+        </div>
+
+        <nav class="nav-tools">
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <i class="fa-solid fa-calculator"></i> <span>Calculadora</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index-moeda.html" class="active">
+                        <i class="fa-solid fa-comments-dollar"></i> <span>Moedas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index-juros.html">
+                        <i class="fa-solid fa-chart-line"></i> <span>Juros</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index-medidas.html">
+                        <i class="fa-solid fa-ruler-combined"></i> <span>Medidas</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="dashboard">
+
+            <div class="calculadora">
+                <div class="display">
+                    <div id="historicoMoeda" class="display-upper">Cotação em tempo real</div>
+                    <div id="resultadoMoeda" class="display-main">R$ 0,00</div>
+                </div>
+
+                <div class="card-util animate-in" style="background: transparent; border: none; box-shadow: none;">
+                    <div class="input-group" style="margin-bottom: 20px;">
+                        <label style="color: #888; display: block; margin-bottom: 10px;">Valor para converter:</label>
+                        <input type="number" id="valorInput" placeholder="0.00"
+                            style="width: 100%; padding: 15px; border-radius: 12px; background: #121212; border: 1px solid #333; color: #fff; font-size: 1.2rem; outline: none;">
+                    </div>
+
+                    <div class="input-group" style="margin-bottom: 20px;">
+                        <label style="color: #888; display: block; margin-bottom: 10px;">De:</label>
+                        <select id="moedaOrigem"
+                            style="width: 100%; padding: 12px; border-radius: 8px; background: #2a2a2a; color: #fff; border: 1px solid #333;">
+                            <option value="BRL">Real Brasileiro (BRL)</option>
+                            <option value="USD">Dólar Americano (USD)</option>
+                            <option value="EUR">Euro (EUR)</option>
+                            <option value="CNY">Yuan Chinês (CNY)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group" style="margin-bottom: 30px;">
+                        <label style="color: #888; display: block; margin-bottom: 10px;">Para:</label>
+                        <select id="moedaDestino"
+                            style="width: 100%; padding: 12px; border-radius: 8px; background: #2a2a2a; color: #fff; border: 1px solid #333;">
+                            <option value="USD">Dólar Americano (USD)</option>
+                            <option value="BRL" selected>Real Brasileiro (BRL)</option>
+                            <option value="EUR">Euro (EUR)</option>
+                            <option value="CNY">Yuan Chinês (CNY)</option>
+                        </select>
+                    </div>
+
+                    <button onclick="converterMoeda()" class="btn-equal"
+                        style="width: 100%; height: 60px; font-size: 1.2rem;">
+                        <i class="fa-solid fa-rotate"></i> Converter Agora
+                    </button>
+                </div>
+            </div>
+
+            <aside class="sidebar">
+                <div class="card-util animate-in">
+                    <h3><i class="fa-solid fa-circle-info"></i> Info</h3>
+                    <p style="font-size: 0.85rem; color: #aaa; line-height: 1.5;">
+                        As cotações são atualizadas automaticamente via API de câmbio.
+                    </p>
+                </div>
+
+                <div class="card-util animate-in" style="animation-delay: 0.2s;">
+                    <h3><i class="fa-solid fa-clock-rotate-left"></i> Últimas Conversões</h3>
+                    <ul id="listaHistoricoMoeda"></ul>
+                    <button onclick="limparHistoricoMoeda()" class="btn-util-red">
+                        <i class="fa-solid fa-trash-can"></i> Limpar
+                    </button>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="calc-footer">
+        <div class="footer-content">
+            <p>Desenvolvido com <i class="fa-solid fa-heart pulse"></i> por <strong>Rafaela Syang</strong></p>
+
+            <div class="social-links">
+                <a href="https://github.com/rafasyang7-cell" target="_blank" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/rafaela-syang-80185b272/" target="_blank" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="mailto:rafasyang7@gmail.com" title="E-mail">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script-moeda.js"></script>
+</body>
+
+</html>

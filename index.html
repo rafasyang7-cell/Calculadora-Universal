@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ProCalc | Calculadora</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style-calcula.css">
+    <link rel="stylesheet" href="CSS/header-calcula.css">
+    <link rel="stylesheet" href="CSS/home-calcula.css">
+</head>
+
+<body>
+
+    <header class="calc-header">
+        <div class="logo">
+            <h1><i class="fa-solid fa-microchip"></i> ProCalc</h1>
+        </div>
+
+        <nav class="nav-tools">
+            <ul>
+                <li>
+                    <a href="index.html" class="active">
+                        <i class="fa-solid fa-calculator"></i> <span>Calculadora</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index-moeda.html">
+                        <i class="fa-solid fa-comments-dollar"></i> <span>Moedas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index-juros.html">
+                        <i class="fa-solid fa-chart-line"></i> <span>Juros</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index-medidas.html">
+                        <i class="fa-solid fa-ruler-combined"></i> <span>Medidas</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="dashboard">
+
+            <div class="calculadora">
+                <div class="display">
+                    <div id="historico" class="display-upper"></div>
+                    <div id="resultado" class="display-main">0</div>
+                </div>
+
+                <div class="teclas-especiais">
+                    <button class="btn-paren" onclick="inserir('(')">(</button>
+                    <button class="btn-paren" onclick="inserir(')')">)</button>
+                </div>
+
+                <div class="teclado-cientifico">
+                    <button class="btn-sci" onclick="prepararFuncao('sin')">sin</button>
+                    <button class="btn-sci" onclick="prepararFuncao('cos')">cos</button>
+                    <button class="btn-sci" onclick="prepararFuncao('sqrt')">
+                        <i class="fa-solid fa-square-root-variable"></i>
+                    </button>
+                    <button class="btn-sci" onclick="prepararFuncao('log')">log</button>
+                </div>
+
+                <div class="teclado-base">
+                    <button class="btn-clear" onclick="limparTudo()">AC</button>
+                    <button class="btn-clear" onclick="apagarUltimo()">C</button>
+                    <button class="btn-op-special" onclick="inserir('%')"><i class="fa-solid fa-percent"></i></button>
+                    <button class="btn-op" onclick="inserir('/')"><i class="fa-solid fa-divide"></i></button>
+
+                    <button class="btn-num" onclick="inserir('7')">7</button>
+                    <button class="btn-num" onclick="inserir('8')">8</button>
+                    <button class="btn-num" onclick="inserir('9')">9</button>
+                    <button class="btn-op" onclick="inserir('*')"><i class="fa-solid fa-xmark"></i></button>
+
+                    <button class="btn-num" onclick="inserir('4')">4</button>
+                    <button class="btn-num" onclick="inserir('5')">5</button>
+                    <button class="btn-num" onclick="inserir('6')">6</button>
+                    <button class="btn-op" onclick="inserir('-')"><i class="fa-solid fa-minus"></i></button>
+
+                    <button class="btn-num" onclick="inserir('1')">1</button>
+                    <button class="btn-num" onclick="inserir('2')">2</button>
+                    <button class="btn-num" onclick="inserir('3')">3</button>
+                    <button class="btn-op" onclick="inserir('+')"><i class="fa-solid fa-plus"></i></button>
+
+                    <button class="btn-num btn-zero" onclick="inserir('0')">0</button>
+                    <button class="btn-num" onclick="inserir('.')">,</button>
+                    <button class="btn-equal" onclick="finalizarCalculo()">
+                        <i class="fa-solid fa-equals"></i>
+                    </button>
+                </div>
+            </div>
+
+            <aside class="sidebar">
+                <div class="card-util animate-in">
+                    <h3><i class="fa-solid fa-pen-fancy"></i> Notas</h3>
+                    <textarea id="blocoNotas" placeholder="Anote seus cálculos aqui..."></textarea>
+                    <button onclick="compartilharNotas()" class="btn-util">
+                        <i class="fa-solid fa-share-nodes"></i> Compartilhar
+                    </button>
+                </div>
+
+                <div class="card-util animate-in" style="animation-delay: 0.2s;">
+                    <h3><i class="fa-solid fa-history"></i> Histórico</h3>
+                    <ul id="listaHistorico"></ul>
+                    <button onclick="limparHistorico()" class="btn-util-red">
+                        <i class="fa-solid fa-trash-can"></i> Limpar
+                    </button>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="calc-footer">
+        <div class="footer-content">
+            <p>Desenvolvido com <i class="fa-solid fa-heart pulse"></i> por <strong>Rafaela Syang</strong></p>
+
+            <div class="social-links">
+                <a href="https://github.com/rafasyang7-cell" target="_blank" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/rafaela-syang-80185b272/" target="_blank" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="mailto:rafasyang7@gmail.com.br" title="E-mail">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script-calcula.js"></script>
+</body>
+
+</html>

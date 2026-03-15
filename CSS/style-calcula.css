@@ -1,0 +1,169 @@
+/* style-calcula.css */
+
+/* 1. RESET E CONFIGURAÇÕES GLOBAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Variáveis para unidade visual do projeto */
+:root {
+    --primary-color: #00adb5;
+    --primary-glow: rgba(0, 173, 181, 0.4);
+    --bg-dark: #121212;
+    --bg-card: #1e1e1e;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: #eeeeee;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Organiza Header, Main e Footer */
+    overflow-x: hidden;
+}
+
+/* 2. SCROLLBAR PERSONALIZADA (ESTILO TECH) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+    border: 2px solid #1e1e1e;
+}
+
+/* 3. ÁREA PRINCIPAL (MAIN) */
+main.container {
+    flex: 1;
+    /* Ocupa o espaço entre header e footer */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 40px 20px;
+}
+
+/* 4. RODAPÉ (FOOTER) CENTRALIZADO */
+.calc-footer {
+    width: 100%;
+    background-color: var(--bg-card);
+    padding: 25px 0;
+    border-top: 1px solid #2a2a2a;
+    /* Linha de divisão bem sutil */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+}
+
+.calc-footer p {
+    font-size: 0.9rem;
+    color: #888;
+    letter-spacing: 1px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.calc-footer strong {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Animação do coração pulsando no rodapé */
+.fa-heart.pulse {
+    animation: heartBeat 1.5s infinite;
+    display: inline-block;
+    color: #ff4d4d;
+    /* Cor do coração */
+}
+
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.3);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* 5. CLASSES AUXILIARES PARA LINKS E BOTÕES */
+a {
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+/* Botões da Sidebar (Notas/Histórico) */
+.btn-util,
+.btn-util-red {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.btn-util {
+    background: #333;
+    color: #eee;
+}
+
+.btn-util:hover {
+    background: var(--primary-color);
+    color: var(--bg-dark);
+}
+
+.btn-util-red {
+    background: #2a1a1a;
+    color: #ff4d4d;
+}
+
+.btn-util-red:hover {
+    background: #ff4d4d;
+    color: white;
+}
+
+/* 6. RESPONSIVIDADE */
+@media (max-width: 600px) {
+    main.container {
+        padding: 20px 10px;
+        align-items: flex-start;
+    }
+
+    .calc-footer p {
+        font-size: 0.8rem;
+    }
+}
